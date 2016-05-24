@@ -1,0 +1,105 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	font-family: sans-serif;
+	background-image: url("img/fondo1.jpg");
+}
+.form-inicio{
+	width: 100%;
+	max-width: 700px;
+	margin: auto;
+	background: white;
+	border-radius: 7px;
+}
+
+.form-registro{
+	width: 95%;
+	max-width: 500px;
+	margin: auto;
+	background: white;
+	border-radius: 7px;
+}
+.form-titulo{
+	background: DarkGrey;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+	font-weight: 100;
+	font-size: 30px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	border-bottom: 5px solid;
+
+
+}
+.contenedor-inputs
+{
+	padding: 10px 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+}
+input{
+	margin-bottom: 15px;
+	padding: 15px;
+	font-size: 16px;
+	border-radius: 3px;
+	border:1px solid DarkGrey;
+}
+.input-48{
+	width: 48%;
+
+}
+.input-100{
+	width: 100%;
+}
+
+.btn-enviar{
+	background: Red;
+	color: #fff;
+	margin: auto;
+	padding: 10px 40px;
+	cursor: pointer;
+	text-align: center;
+}
+.btn-ingresar{
+	background: Red;
+	color: #fff;
+	margin: auto;
+	padding: 15px 50px;
+	cursor: pointer;
+	text-align: center;
+}
+.btn-enviar:active{
+	transform: scale(1.05);
+}
+.form-link{
+	width: 100%;
+	margin: 10px;
+	text-align: center;
+	font-size: 30px;
+}
+.centrado{
+	margin: auto;
+	width: 95%;
+
+	
+	color: Black;
+	text-align: center;
+	cursor: pointer;
+	padding: 20px 50px;
+}
+
+.about{
+	background: Red;
+	width: 200%;
+	text-align: center;
+	color: #fff;
+	margin: auto;
+	cursor: pointer;
+	padding: 80px 80px;
+}
+
