@@ -5,7 +5,7 @@ session_start();
 
 include('includes/modelo.class.php');
 
-if(isset($_REQUEST['user'])){
+if(isset($_REQUEST['user'])){ 
 
 	$con = new Modelo();
 
