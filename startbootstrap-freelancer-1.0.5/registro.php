@@ -3,6 +3,7 @@
 	include('includes/modelo.class.php');
 	if(isset($_POST['user'])){
 	$con = new Modelo();
+	
 	$res = $con->crearUsuarioNuevo($_POST['password'],$_POST['localidad'],$_POST['user'],$_POST['nombre'],$_POST['apellido'],$_POST['telefono']);
 	if ($res == "Se creo el usuario exitosamente" ){
 		header("Location: usuariocreado.php");
@@ -35,7 +36,7 @@
 									
 									<br>
 									
-									<input align="center" id="user" type="email" name="user" placeholder="User" class="input-48" required>
+									<input align="center" id="user" type="email" name="user" placeholder="Correo Electrónico" class="input-48" required>
 									
 									<br>
 								
@@ -47,21 +48,22 @@
 									
 									<br>
 									
-									<input align="center" id="telefono" type="number" name="telefono" placeholder="Telefono" class="input-100" required>
+									<input align="center" id="telefono"  type="number" minlength="6" maxlength="20" name="telefono" placeholder="Telefono" class="input-100" required>
 									
 									<br>
 								
 									
 									
-									<button class="btn-enviar" type="submit" name="action">Ingresar
+									<button class="btn-enviar" type="submit" name="action">Registrar
 									
 									</button>
 									<br>
 									<p class="form-link">¿Ya tienes una cuenta?
-									<a href="inicio.php">Ingresa aquí</a></p>
+									<a href="login.php">Ingresa aquí</a></p>
 									<br>
 									<br>
 									<p class="red-text text-darken-2 center">Al registrarme, declaro que soy mayor de edad y acepto los Términos y Condiciones y las Políticas de Privacidad de CouhInn.</p>
+									<?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>;
 									
 					</div>
         		</div>

@@ -28,6 +28,9 @@ if (isset($_SESSION['id'])){
 	<h3 class="center red-text">ERROR</h3>
 	<h5 class="center red-text"> DEBES ESTAR LOGEADO PARA VER ESTA PAGINA </h5>
 	<br><img src="img/error.jpg" width="250px"></img><br><a class="btn red" href="index.php">PAGINA PRINCIPAL</a><br><br></div> 
+	<br>
+	<?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>
+									
 </div>
 <?php
 

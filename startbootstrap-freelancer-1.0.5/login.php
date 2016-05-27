@@ -30,8 +30,7 @@
 			<a class="centrado" align="center" href="registro.php">Registrarse</a> 
 			<a class="centrado" align="center" href="recuperarpassword.php">Recuperar contraseña</a> 
 			<a class="centrado" href="ayuda.php">Ayuda</a>
-
-									
+			<?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>;									
 								
 
 

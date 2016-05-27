@@ -29,7 +29,8 @@ if (isset($_SESSION['id'])){
     <form class="col s12" method="post">
         <input type="hidden" name="edit" value="." />
     <div class="card-panel">
-        <h5><!--<i class="material-icons">person_pin</i>--> Informacion Personal <a href="updateProfile.php"><i class="white-text material-icons right tooltipped" data-position="right" data-delay="30" data-tooltip="Modificar tus datos personales"><!--mode_edit--></i></a></h5>
+        <h5><!--<i class="material-icons">person_pin</i>--> Informacion Personal
+         <a href="updateProfile.php"><i class="white-text material-icons right tooltipped" data-position="right" data-delay="30" data-tooltip="Modificar tus datos personales"><!--mode_edit--></i></a></h5>
         <li class="divider"></li><br>
           <div class="row">
             <div class="input-field col s6">
@@ -68,6 +69,10 @@ if (isset($_SESSION['id'])){
  <div class="row">
      <input  type="reset"  class="col s12 btn waves-effect waves-light red lighten-1"  name="cancelar modif" value="Cancelar" />
     <button href="#" class="col s12 btn waves-effect waves-light red lighten-1" type="submit">Actualizar</button>
+    <br>
+    <br>
+    <br>
+    <?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>
     
      
 </div>

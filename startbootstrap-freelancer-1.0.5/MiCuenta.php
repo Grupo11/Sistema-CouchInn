@@ -1,4 +1,9 @@
 <?php $usuario = $con->getUser($_SESSION['id']); ?>
+<head>
+	
+
+</head>
+
 
 <div class="container">
 	<div class="card-panel red lighten-2 white-text">
@@ -28,21 +33,29 @@
 		<div class="row">
 			<div class="col s12 m6">
 			<span><b>Email:</b> <?php echo $usuario['user'];?></span>
+			<br>
+			<br>
 			</div>
 		</div>
 	</div>
 	<div class="row center-align valign">
 		<div class="col s6 m4">
-		<a class="red-text tooltipped" data-position="bottom" data-delay="30" data-tooltip="Modificar tus datos personales" href="updateProfile.php"><u>Editar Datos</u></a>
+		<a  class="red-text tooltipped" data-position="bottom" data-delay="30" data-tooltip="Modificar tus datos personales" href="updateProfile.php"><u>Editar Datos</u></a>
+		<br>
+		<br>
 		</div>
 		<div class="col s6 m4" >
-		<a class="red-text tooltipped" data-position="bottom" data-delay="30" data-tooltip="Modificar unicamente tu contraseña" href="updatePassword.php"><u>Editar Contraseña</u></a>
+		<a class="red-text tooltipped" type="button" data-position="bottom" data-delay="30" data-tooltip="Modificar unicamente tu contraseña" href="updatePassword.php"><u>Editar Contraseña</u></a>
 		</div>
 		<div class="col s12 hide-on-med-and-up">
 		<br>
 		</div>
 		<div class="col s12 m4 valign" >
 		<a class="red-text tooltipped modal-trigger" data-position="bottom" data-delay="30" data-toggle="modal" data-target="#Eliminar" data-tooltip="Eliminar tu cuenta" href="#"><u>Eliminar Cuenta</u></a>
+		<br>
+		<br>
+		<?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>
+									
 		</div>
 	</div>
 	
