@@ -87,11 +87,11 @@ class Modelo {
 	}
 	
 	//Crea un usuario nuevo siempre y cuando no exista el username en la base de datos.
-	public function crearUsuarioNuevo($password, $localidad, $user, $nombre, $apellido, $telefono, $admin){
+	public function crearUsuarioNuevo($password, $localidad, $user, $nombre, $apellido,$telefono){
 		
 		if ($this->usuarioNoExiste($user)){
 			$token = md5($user.rand());
-			if($this->con->query("INSERT INTO `usuario` (`password`, `localidad`, `user`, `nombre`, `apellido`, `telefono`, `admin`) VALUES ('{$password}', '{$localidad}', '{$user}', '{$nombre}', '{$apellido}', '{$telefono}', '{$admin}')")
+			if($this->con->query("INSERT INTO `usuario` (`password`, `localidad`, `user`, `nombre`, `apellido`, `telefono`,token) VALUES ('{$password}', '{$localidad}', '{$user}', '{$nombre}', '{$apellido}', '{$telefono}','{$token}')")
 			){
 			$respuesta = "Se creo el usuario exitosamente";	
 			}
@@ -118,12 +118,12 @@ class Modelo {
 		$this->con->query("UPDATE usuario SET
 				nombre = '{$nuevo['nombre']}' ,
 				apellido = '{$nuevo['apellido']}' ,
-				tarjeta_credito = '{$nuevo['tarjeta_credito']}' ,
-				email = '{$nuevo['email']}',
-				pass = '{$nuevo['pass']}'
+				user = '{$nuevo['user']}',
+				password = '{$nuevo['password']}'
 			WHERE id = '{$viejo['id']}'");
 
 		return $respuesta;
+		//tarjeta_credito = '{$nuevo['tarjeta_credito']}' ,
 	}
 	
 	public function setRespuesta($respuesta,$idcomentario){
@@ -151,15 +151,28 @@ class Modelo {
 	}
 	
 	public function getUserByEmail($email){
-		$res = $this->con->query("SELECT * FROM usuario WHERE email = '{$email}' ");
+		$res = $this->con->query("SELECT * FROM usuario WHERE user = '{$email}' ");
+		if($res->num_rows)
+			return $res->fetch_assoc();
+		else
+			return 0;
+	}
+	public function getUserByToken($token){
+		$res = $this->con->query("SELECT * FROM usuario WHERE token = '{$token}' ");
 		if($res->num_rows)
 			return $res->fetch_assoc();
 		else
 			return 0;
 	}
 
+
 	public function backupUser($id){
 		$this->con->query("UPDATE `usuario` SET `deleted`= '0' WHERE id = '{$id}' ");
+	}
+	public function deleteUser($id){
+		$this->con->query("UPDATE `usuario` SET `deleted`= '1' WHERE id = '{$id}' ");
+		$this->con->query("UPDATE `producto` SET `estado`= '3' WHERE id_usuario = '{$id}' AND estado = 0 ");
+		$this->con->query("UPDATE `venta` SET `canceled`= '1' WHERE id_usuario = '{$id}' ");
 	}
 
 	

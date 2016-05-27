@@ -3,7 +3,7 @@
 	include('includes/modelo.class.php');
 	if(isset($_POST['user'])){
 	$con = new Modelo();
-	$res = $con->crearUsuarioNuevo($_POST['nombre'],$_POST['apellido'],$_POST['user'],$_POST['password'],$_POST['localidad'],$_POST['telefono'],$_POST['admin']);
+	$res = $con->crearUsuarioNuevo($_POST['password'],$_POST['localidad'],$_POST['user'],$_POST['nombre'],$_POST['apellido'],$_POST['telefono']);
 	if ($res == "Se creo el usuario exitosamente" ){
 		header("Location: usuariocreado.php");
 	}else{
@@ -35,7 +35,7 @@
 									
 									<br>
 									
-									<input align="center" id="user" type="text" name="user" placeholder="User" class="input-48" required>
+									<input align="center" id="user" type="email" name="user" placeholder="User" class="input-48" required>
 									
 									<br>
 								
@@ -47,7 +47,7 @@
 									
 									<br>
 									
-									<input align="center" id="telefono" type="text" name="telefono" placeholder="Telefono" class="input-100" required>
+									<input align="center" id="telefono" type="number" name="telefono" placeholder="Telefono" class="input-100" required>
 									
 									<br>
 								
