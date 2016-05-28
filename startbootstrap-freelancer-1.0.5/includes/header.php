@@ -40,7 +40,9 @@
     <!--<nav class="navbar navbar-default navbar-fixed-top">-->
         <div class="container">
           
-             <img class="ancho-alto"    src="img/fondo2.png" alt="">
+              <a class="brand-logo" href="#page-top">
+                <img   src="img/fondo2.png" alt="logo" style="float:left" width="350" height="70">
+             </a>
              
             <!-- Brand and toggle get grouped for better mobile display -->
           
@@ -55,7 +57,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                    <li><a href="index.php">VER LISTADO</a></li>
+                    <li><a href="buscar.php">BUSCAR HOSPEDAJE</a></li>
                             <?php if(isset($_SESSION['user'])){ ?>
                                <!-- <li><a href="crearsubasta.php">SUBASTAR</a></li> -->
 

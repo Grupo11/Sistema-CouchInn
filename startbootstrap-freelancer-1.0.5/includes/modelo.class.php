@@ -137,6 +137,67 @@ class Modelo {
 			$resultado[] = $fila;
 		}
 		return $resultado;
+	}
+
+
+	public function addType($nombre){
+		$this->con->query("INSERT INTO tipo(id,nombre) VALUES (NULL,'{$nombre}')");
+		return $this->con->insert_id;
+	}
+	
+	public function removeType($id){
+		$this->con->query("DELETE FROM tipo WHERE id = '{$id}'");
+	}
+
+	public function getAllTypes(){
+		
+		$res = $this->con->query("SELECT c.id, c.nombre, (SELECT COUNT(*) FROM hospedaje h WHERE h.id_tipo = c.id ) items FROM tipo c");
+		
+		$resultado = array();
+		while( $fila = $res->fetch_assoc() ){
+			$resultado[] = $fila;
+		}
+		return $resultado;
+	}
+
+	public function getNombreTipo($id){
+		$res = $this->con->query("SELECT * FROM tipo WHERE id = '{$id}' ");
+		$fila = array();
+		$fila[] = $res->fetch_assoc() ;
+		$resultado = $fila[0]['nombre'];
+	return $resultado;
+	}
+
+	public function getIdTipo($nombre){
+		$res = $this->con->query("SELECT * FROM tipo WHERE nombre = '{$nombre}' ");
+		$fila = array();
+		$fila[] = $res->fetch_assoc() ;
+		$resultado = $fila[0]['id'];
+	return $resultado;
+	}
+
+	public function getHospedajesWith($id_tipo,$precio){
+		$res = $this->con->query("SELECT * FROM hospedaje WHERE id_tipo = '{$id_tipo}'");
+		
+		$resultado = array();
+
+		while( $fila = $res->fetch_assoc() ){
+			$resultado[] = $fila;
+		}
+		return $resultado;
+		
+	}
+	
+	
+	public function getAllHospedajes(){
+		$res = $this->con->query("SELECT * FROM hospedaje".$this->order());
+		
+		$resultado = array();
+		while( $fila = $res->fetch_assoc() ){
+			$resultado[] = $fila;
+		}
+		return $resultado;
+		
 	}	
 	
 	
