@@ -13,8 +13,8 @@ if(isset($_POST['user'])){
     if(!$user){
         $mje = 'El email ingresado no existe';
     }else{
-        $link = 'http://localhost/lalalalal/startbootstrap-freelancer-1.0.5/recuperarpassword.php?token='.$user['token'];
-       /* $mail = new PHPMailer();
+       /* $link = 'http://127.0.0.1/Proyecto_ing/Proyecto_ing/startbootstrap-freelancer-1.0.5/recuperarpassword.php?token='.$user['token'];
+        $mail = new PHPMailer();
         $mail->Username = "info.couchinn@gmail.com";
         $mail->Password = "couchinn1234"; 
         $mail->AddAddress($user['user']);
@@ -29,7 +29,7 @@ if(isset($_POST['user'])){
             $mje = 'El email ha sido enviado';
         }else{
             $mje = 'El email no pudo ser enviado';
-        }*/
+        } */
         file_put_contents("mailConfirmacion.txt", $link);
         $mje="el mail fue guardado ...";
     }

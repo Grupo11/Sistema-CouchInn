@@ -72,7 +72,7 @@
                             <?php } ?>
                         
                      
-                            <li class="divider"></li>
+                            <li class="divider"></li> 
           
                    
             

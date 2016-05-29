@@ -17,64 +17,72 @@ include('includes/header.php')
             </div>
             <div class="row">
                 <div class="col-sm-4 hospedajes-item">
-                    <a href=hospedaje1.php  class="hospedaje-link" data-toggle="hospedaje">
+                <?php $id= 1; ?>
+                            
+                    <a href="verDetalle.php?id=<?php echo $id ?>"  class="hospedaje-link" data-toggle="hospedaje">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
+                                <i class="fa fa-search-plus fa-3x">Casa</i>
                             </div>
-                        </div>
-                        <img src="img/hospedajes/hosp1.jpg" class="img-responsive" alt="">
+                        </div> 
+                        <img src="img/hospedajes/hosp6.jpg"  alt="" height="400" width="400">
                        
                     </a>
                 </div>
                 <div class="col-sm-4 hospedajes-item">
-                    <a href="#portfolioModal2" class="hospedaje-link" data-toggle="modal">
+                    <?php $id= 2; ?>
+                    <a href="verDetalle.php?id=<?php echo $id ?>" class="hospedaje-link" data-toggle="hospedaje">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
+                                <i class="fa fa-search-plus fa-3x">Hotel</i>
                             </div>
                         </div>
-                        <img src="img/hospedajes/hosp2.jpg" class="img-responsive" alt="">
+                        <img src="img/hospedajes/hosp1.jpg"  alt="" height="400" width="400">
                     </a>
                 </div>
                 <div class="col-sm-4 hospedajes-item">
-                    <a href="#portfolioModal3" class="hospedajes-link" data-toggle="modal">
+                    <?php $id= 3; ?>
+                    <a href="verDetalle.php?id=<?php echo $id ?>" class="hospedaje-link" data-toggle="hospedaje">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
+                                <i class="fa fa-search-plus fa-3x">Hotel</i>
                             </div>
                         </div>
-                        <img src="img/hospedajes/hosp3.jpg" class="img-responsive" alt="">
+                        <img src="img/hospedajes/hosp11.jpg"  alt="" height="400" width="400">
                     </a>
                 </div>
                 <div class="col-sm-4 hospedajes-item">
-                    <a href="#portfolioModal4" class="hospedaje-link" data-toggle="modal">
+                    <?php $id= 4; ?>
+                    <a href="verDetalle.php?id=<?php echo $id ?>" class="hospedaje-link" data-toggle="hospedaje">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
+                                <i class="fa fa-search-plus fa-3x">Departamento</i>
                             </div>
                         </div>
-                        <img src="img/hospedajes/hosp4.jpg" class="img-responsive" alt="">
+                        <img src="img/hospedajes/hosp2.jpg"  alt="" height="400" width="400">
                     </a>
                 </div>
                 <div class="col-sm-4 hospedajes-item">
-                    <a href="#portfolioModal5" class="hospedaje-link" data-toggle="modal">
+                    <?php $id= 5; ?>
+                    <a href="verDetalle.php?id=<?php echo $id ?>" class="hospedaje-link" data-toggle="hospedaje">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
+                                <i class="fa fa-search-plus fa-3x">Hostel</i>
                             </div>
                         </div>
-                        <img src="img/hospedajes/hosp5.jpg" class="img-responsive" alt="">
+                        <img src="img/hospedajes/hosp10.jpg"  alt="" height="400" width="400">
+                        
                     </a>
                 </div>
                 <div class="col-sm-4 hospedajes-item">
-                    <a href="#portfolioModal6" class="hospedaje-link" data-toggle="modal">
+                    <?php $id= 6; ?>
+                    <a href="verDetalle.php?id=<?php echo $id ?>" class="hospedaje-link" data-toggle="hospedaje">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
+                                <i class="fa fa-search-plus fa-3x">Hotel</i>
                             </div>
                         </div>
-                        <img src="img/hospedajes/hosp6.jpg" class="img-responsive" alt="">
+                        <img src="img/hospedajes/hosp13.jpg"  alt="" height="400" width="400">
                     </a>
                 </div>
             </div>

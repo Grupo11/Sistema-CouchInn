@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="estiloinicio.css" rel="stylesheet">
+</head>
 <?php 
 
 session_start();
@@ -7,73 +13,42 @@ include('includes/modelo.class.php');
 
 $con = new Modelo();
 $tipos = $con->getAllTypes();
+$localidades = $con->getLocalidades();
 
          
-if ( (isset($_REQUEST['tipo'])) and (isset($_REQUEST['precio'])) ){
+if ( (isset($_REQUEST['tipo'])) and (isset($_REQUEST['loc'])) ){
+
 	$id_tipo = $con->getIdTipo($_REQUEST['tipo']);
-	$precio = ($_REQUEST['precio']);
-	$hospedajes = $con->getHospedajesWith($id_tipo,$precio);
+	$localidad = $con->getIdLocalidad($_REQUEST['loc']);
+	$hospedajes = $con->getHospedajesWith($id_tipo,$localidad);
  ?>
 
-     <?php include('includes/header.php'); ?>
-     <p class="red-text" align="center" style="font-weight: 900;">RESULTADOS DE LA BÚSQUEDA</p>
-
      
+     <h1 class="red-text" align="center" style="font-weight: 900;">RESULTADOS DE LA BÚSQUEDA</h1>
 
      <?php foreach( $hospedajes as $hospedaje ){ ?>
 
-     	<div class="container">
+       <form class="form-inicio" >
 
-     	<img style="float:left;" src="<?php echo $hospedaje['foto']; ?>" alt="" class="circle" width="200" height="150">
-        <br>
-        
-     	<?php 
-     	 echo "NOMBRE:";
-     	 echo $hospedaje['nombre']; ?>
+         <a href="verDetalle.php?id=<?php echo  $hospedaje['id'] ?>">
+
+         <h1 class="form-titulo"> <?php echo $hospedaje['nombre']; ?>  </h1> 
+         <h3 align="center"><img src="<?php echo $hospedaje['foto']; ?>" alt="" class="circle" width="600" height="400"></h3>
+     	
      	 <br>
-     	 <?php 
-     	 echo "PRECIO:";
-     	 echo $hospedaje['precio'];
-        ?>
-        <br>
-     	 <?php 
-     	 echo "DESCRIPCIÓN:";
-     	 echo $hospedaje['descripcion'];
-        ?>
-     
-     	</div>
-     	 <br>
+       </form>
 
-     	<?php
-     	}  
-     ?>
+     	<?php } ?>
 
-   
-
-     </html>
-
-    	
-	
-	
-	<?php
-	 } else { 
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link href="estiloinicio.css" rel="stylesheet">
+    </html>
+	<?php } else { ?>
 
 
-</head>
 <body>
 
 <body>
 		<form   action="" method="post" class="form-inicio">
-        
-          
-               			
+        	
 			<h1 class="form-titulo"> Búsqueda </h1>
 									
 			<div class="contenedor-inputs">
@@ -85,28 +60,19 @@ if ( (isset($_REQUEST['tipo'])) and (isset($_REQUEST['precio'])) ){
 					<?php } ?>
 			 	
 			 </datalist>
-            <br>
-			<br>
-            <input class="centrado" list="precios" name="precio" placeholder="Seleccionar Precio" required=""> 
-            <datalist id="precios" class="centrado">
-                <option>Hasta $500</option>
-                <option>Hasta $1000</option>
-                <option>Hasta $1500</option>
-                <option>Hasta $2000</option>
-                <option>Desde $2000</option>
-                <option>Desde $500</option>
-            </datalist>
+           
+             <input class="centrado" align="center" list="loc" name="loc" placeholder="localidad" required="">
+             <datalist id="loc">
+                 <?php foreach ($localidades as $localidad ){ ?>
+
+                     <option value="<?php echo $localidad['nombre']; ?>"><?php echo $localidad['nombre']; ?></option>
+                 <?php } ?>
+             </datalist>
 			<br>
 			<br>
 			<input class="btn-ingresar" type="submit" name="action" value="Buscar">
 			<br>
 			<br>
-
-			
- 
-									
-								
-
 
 </body>
 </html>

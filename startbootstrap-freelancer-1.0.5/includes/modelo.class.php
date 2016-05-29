@@ -176,8 +176,19 @@ class Modelo {
 	return $resultado;
 	}
 
-	public function getHospedajesWith($id_tipo,$precio){
-		$res = $this->con->query("SELECT * FROM hospedaje WHERE id_tipo = '{$id_tipo}'");
+	public function getLocalidades(){
+		
+		$res = $this->con->query("SELECT * FROM localidad");
+		
+		$resultado = array();
+		while( $fila = $res->fetch_assoc() ){
+			$resultado[] = $fila;
+		}
+		return $resultado;
+	}
+
+	public function getHospedajesWith($id_tipo,$id_localidad){
+		$res = $this->con->query("SELECT * FROM hospedaje WHERE id_tipo = '{$id_tipo}' AND id_localidad = '{$id_localidad}'");
 		
 		$resultado = array();
 
@@ -187,7 +198,15 @@ class Modelo {
 		return $resultado;
 		
 	}
-	
+
+	public function getHospedajeWithId($id){
+        $res = $this->con->query("SELECT * FROM hospedaje WHERE id = '{$id}' ");
+		$fila = array();
+		$fila[] = $res->fetch_assoc() ;
+		$resultado = $fila[0];
+	    return $resultado;
+
+	}
 	
 	public function getAllHospedajes(){
 		$res = $this->con->query("SELECT * FROM hospedaje".$this->order());
@@ -200,7 +219,21 @@ class Modelo {
 		
 	}	
 	
-	
+	public function getIdLocalidad($nombre){
+		$res = $this->con->query("SELECT * FROM localidad WHERE nombre = '{$nombre}' ");
+		$fila = array();
+		$fila[] = $res->fetch_assoc() ;
+		$resultado = $fila[0]['id'];
+	return $resultado;
+	}
+
+	public function getNombreLocalidad($id){
+		$res = $this->con->query("SELECT * FROM localidad WHERE id = '{$id}' ");
+		$fila = array();
+		$fila[] = $res->fetch_assoc() ;
+		$resultado = $fila[0]['nombre'];
+	return $resultado;
+	}
 	
 	
 	public function getUser($id){
