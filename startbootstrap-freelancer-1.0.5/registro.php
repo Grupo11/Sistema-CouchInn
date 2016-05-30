@@ -17,7 +17,8 @@
 	 <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/-->
 
    <link href="estiloinicio.css" rel="stylesheet">
-
+    <style type="text/css">
+	</style>
 
 	<title>Formulario de registro</title>
 </head>
@@ -63,7 +64,7 @@
 									<br>
 									<br>
 									<p class="red-text text-darken-2 center">Al registrarme, declaro que soy mayor de edad y acepto los Términos y Condiciones y las Políticas de Privacidad de CouhInn.</p>
-									<?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>;
+									<a class="btn red"  align="center" href="index.php" style="text-decoration: none"  style="color: #22335E" >Ir Inicio</a>
 									
 					</div>
         		</div>

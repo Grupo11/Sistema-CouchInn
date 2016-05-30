@@ -118,6 +118,8 @@ class Modelo {
 		$this->con->query("UPDATE usuario SET
 				nombre = '{$nuevo['nombre']}' ,
 				apellido = '{$nuevo['apellido']}' ,
+				localidad = '{$nuevo['localidad']}' ,
+				telefono = '{$nuevo['telefono']}' ,
 				user = '{$nuevo['user']}',
 				password = '{$nuevo['password']}'
 			WHERE id = '{$viejo['id']}'");

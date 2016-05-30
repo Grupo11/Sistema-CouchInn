@@ -4,8 +4,8 @@
 <head>
 	<title></title>
 	<link href="estiloinicio.css" rel="stylesheet">
-
-
+	<style type="text/css">
+	</style>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
         
           
                			
-			<h1 class="form-titulo"> Iniciar Sesion</h1>
+			<h1 class="form-titulo" > Iniciar Sesion</h1>
 									
 			<div class="contenedor-inputs">
 
@@ -30,7 +30,8 @@
 			<a class="centrado" align="center" href="registro.php">Registrarse</a> 
 			<a class="centrado" align="center" href="recuperarpassword.php">Recuperar contraseña</a> 
 			<a class="centrado" href="ayuda.php">Ayuda</a>
-			<?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>;									
+			<a class="btn red"  align="center" href="index.php" style="text-decoration: none"  style="color: #22335E" >Ir Inicio</a>
+										
 								
 
 

@@ -1,1 +1,0 @@
-http://127.0.0.1/Proyecto_ing/Proyecto_ing/startbootstrap-freelancer-1.0.5/recuperarpassword.php?token=12dbdaa553b85bf81e68c37e6f2b17aa
