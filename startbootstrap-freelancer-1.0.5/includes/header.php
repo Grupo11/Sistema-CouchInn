@@ -63,26 +63,16 @@
 
                                 <li><a href="perfil.php"><span style="text-transform:uppercase"> <?php echo $_SESSION['user']; ?> </span> </a></li>
                                 <li><a href="logout.php">SALIR</a></li>
-                                <?php
-                                if($_SESSION['admin']){ ?><li><a href="menuadmin.php"><i class="white-text material-icons" style="font-size:1.4rem">security</i></a></li><?php }
-                                ?>
-                            <?php }else{ ?>
+                                <?php if($_SESSION['admin']){ ?><li><a href="menuadmin.php">ADMINISTRACIÓN</a></li><?php } ?>
+                                <?php }else{ ?>
                                 <li><a href="registro.php">REGISTRARSE</a></li>
                                 <li><a href="login.php">INGRESAR</a></li>
                             <?php } ?>
                         
-                     
+                            
                             <li class="divider"></li> 
-          
-                   
-            
                             </div>
-                        </ul>
-                       
-
-
-                       
-                    
+                        </ul>   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
