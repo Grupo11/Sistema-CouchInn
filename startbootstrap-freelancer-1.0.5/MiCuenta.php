@@ -64,7 +64,7 @@
 		<div class="modal-content">
 		
 			<h4>Eliminar cuenta </h4>
-			<p>¿Estas seguro de eliminar tu cuenta en CouchInn? Todavia tenemos mucho que ofrecerte!<br><br> No podrás loguearte con el mismo usuario. Esta accion no se puede deshacer.<br><br></p>
+			<p>¿Estas seguro de eliminar tu cuenta en CouchInn? Todavia tenemos mucho que ofrecerte!<br><br> Mira que no podrás loguearte con el mismo usuario. Esta accion no se puede deshacer.<br><br></p>
 		</div>
 		<div class="modal-footer">
 		    <style type="text/css">

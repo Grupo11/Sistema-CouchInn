@@ -1,1 +1,3 @@
-http://127.0.0.1/Sistema-CouchInn/startbootstrap-freelancer-1.0.5/recuperarpassword.php?token=375b9a2cbe96e630ccbc227c719d5422
+Para reestablecer su clave de acceso por favor ingrese a este enlace: 
+
+http://127.0.0.1/Sistema-CouchInn/startbootstrap-freelancer-1.0.5/recuperarpassword.php?token=18501233b1591c052027cd011363ad9a

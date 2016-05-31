@@ -11,10 +11,14 @@ if(isset($_SESSION['id'])){
 if(isset($_POST['Recuperar'])){
   
     $user = $con->getUserByEmail($_POST['user']);
-    if(!$user){
-        $mje = 'El email ingresado no existe';
-    }else{
-      $link = 'http://127.0.0.1/Sistema-CouchInn/startbootstrap-freelancer-1.0.5/recuperarpassword.php?token='.$user['token'];
+    if((!$user) ||  ($user['deleted'] == 1)){
+    
+     
+        $mje = '<script background-color:red>alert("El mail ingresado no existe")</script>';//'El email ingresado no existe';
+    }
+   
+    else{
+      $link ='http://127.0.0.1/Sistema-CouchInn/startbootstrap-freelancer-1.0.5/recuperarpassword.php?token='.$user['token'];//'http://127.0.0.1/Sistema-CouchInn/startbootstrap-freelancer-1.0.5/recuperarpassword.php?token='.$user['token'];
        /* $mail = new PHPMailer();
         $mail->Username = "info.couchinn@gmail.com";
         $mail->Password = "couchinn1234"; 
@@ -31,8 +35,10 @@ if(isset($_POST['Recuperar'])){
         }else{
             $mje = 'El email no pudo ser enviado';
         } */
-        file_put_contents("mailRecuperacionContraseña.txt", $link);
-        $mje="El mail ha sido enviado";
+       $mensaje='Para reestablecer su clave de acceso por favor ingrese a este enlace: '."\r\n"."\r\n".$link  ;
+        
+        file_put_contents("mailRecuperacionContraseña.txt", $mensaje);
+        $mje='<script>alert("El mail ha sido enviado")</script>';//"El mail ha sido enviado";
     }
 
 }
@@ -104,7 +110,7 @@ if(isset($_POST['recover'])){
             </body>
           <!--<h5> Reestablecer contraseña</h5>-->
           <br>
-          <p>Para reestablecer su contraseña ingrese su dirección de correo para que le enviemos un enlace de recuperación. </p>
+          <p>Para reestablecer su contraseña ingrese su dirección de correo electrónico para que le enviemos un enlace de recuperación. </p><br><br>
             <div class="row">
             <div class="input-field col s12">
               <input required id="user" type="user" name="user" class="validate" />
