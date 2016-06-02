@@ -24,13 +24,12 @@ if (isset($_SESSION['id'])){
 <?php
 }else{
 ?>
-
-<div class="center" class="col s12 center-align" align="center">
-	<h3 class="center red-text" align="center">ERROR</h3>
-	<h5 class="center red-text" align="center"> DEBES ESTAR LOGEADO PARA VER ESTA PAGINA </h5>
-	<br><img align=center style="float:center;" src="img/error.png"  width="150px"></img><br><br><br><a class="btn red" align="center" href="index.php">PAGINA PRINCIPAL</a><br><br> 
+<div class="center">
+	<h3 class="center red-text">ERROR</h3>
+	<h5 class="center red-text"> DEBES ESTAR LOGEADO PARA VER ESTA PAGINA </h5>
+	<br><img src="img/error.jpg" width="250px"></img><br><a class="btn red" href="index.php">PAGINA PRINCIPAL</a><br><br></div> 
 	<br>
-	<!--<?php //echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>-->
+	<?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>
 									
 </div>
 <?php

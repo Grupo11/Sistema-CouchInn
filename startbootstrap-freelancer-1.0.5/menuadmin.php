@@ -26,7 +26,8 @@ if (isset($_SESSION['id']) && ($_SESSION['admin'])){
  <?php } ?>
                         
  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-		<script src="scripts/main.js"></script>                           
+		<script src="scripts/main.js"></script>  
+		                         
   
 
 

@@ -53,7 +53,7 @@ if ( (isset($_REQUEST['tipo'])) and (isset($_REQUEST['loc'])) ){
 									
 			<div class="contenedor-inputs">
 
-			<input class="centrado" align="center" list="tipo" name="tipo" placeholder="Seleccionar Tipo" required=""> 
+			<input class="centrado" align="center"  list="tipo" name="tipo" placeholder="Seleccionar Tipo" required=""> 
 			 <datalist id="tipo">
 			    <?php foreach( $tipos as $tipo ){ ?>
 					<option value="<?php echo $tipo['nombre']; ?>"><?php echo $tipo['nombre']; ?></option>
@@ -61,7 +61,7 @@ if ( (isset($_REQUEST['tipo'])) and (isset($_REQUEST['loc'])) ){
 			 	
 			 </datalist>
            
-             <input class="centrado" align="center" list="loc" name="loc" placeholder="localidad" required="">
+             <input class="centrado"  align="center" list="loc" name="loc" placeholder="Seleccionar Localidad" required="">
              <datalist id="loc">
                  <?php foreach ($localidades as $localidad ){ ?>
 
@@ -70,9 +70,11 @@ if ( (isset($_REQUEST['tipo'])) and (isset($_REQUEST['loc'])) ){
              </datalist>
 			<br>
 			<br>
+			<br>
+			<br>
 			<input class="btn-ingresar" type="submit" name="action" value="Buscar">
 			<br>
-			<br>
+			</div>
 
 </body>
 </html>

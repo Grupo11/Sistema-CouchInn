@@ -38,10 +38,27 @@
     <!-- Navigation -->
     <div class="c-fondocouchinn navbar-default ">
     <!--<nav class="navbar navbar-default navbar-fixed-top">-->
-        <div class="container">
+       <div class="container"  >
           
               <a class="brand-logo" href="#page-top">
-                <img   src="img/fondo2.png" alt="logo" style="float:left" width="350" height="70">
+                <a href="index.php"> <img   src="img/fondo2.png" alt="logo"  style="float:left" width="350" height="70"> </a>
+           
+                   <li><a href="buscar.php"  >BUSCAR HOSPEDAJE</a></li>
+                            <?php if(isset($_SESSION['nombre'])){ ?>
+                               <!-- <li><a href="crearsubasta.php">SUBASTAR</a></li> -->
+
+
+                                <li><a href=""><span style="text-transform:uppercase"> Hola! <?php echo "<br>"?> <?php echo $_SESSION['nombre']; ?> </span> </a></li>
+                                <li><a href="perfil.php"> MI PERFIL </a></li>
+                             	<li><a href="logout.php">SALIR</a></li>
+                                <?php if($_SESSION['admin']){ ?><li><a href="menuadmin.php">ADMINISTRACIÓN</a></li><?php } ?>
+                                <?php }else{ ?>
+                                <li><a href="registro.php" >REGISTRARSE</a></li>
+                                <li><a href="login.php" >INGRESAR</a></li>
+                            <?php } ?>
+                        
+                            
+                            <li class="divider"></li> 
              </a>
              
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -51,18 +68,20 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+           <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="page-scroll">
-                    <li><a href="buscar.php">BUSCAR HOSPEDAJE</a></li>
-                            <?php if(isset($_SESSION['user'])){ ?>
+                    <li class="page-scroll"  >-->
+                  <!--  <li><a href="buscar.php"  >BUSCAR HOSPEDAJE</a></li>
+                            <?php if(isset($_SESSION['nombre'])){ ?>
                                <!-- <li><a href="crearsubasta.php">SUBASTAR</a></li> -->
 
-                                <li><a href="perfil.php"><span style="text-transform:uppercase"> <?php echo $_SESSION['user']; ?> </span> </a></li>
-                                <li><a href="logout.php">SALIR</a></li>
+
+                               <!-- <li><a href=""><span style="text-transform:uppercase"> Hola! <?php echo "<br>"?> <?php echo $_SESSION['nombre']; ?> </span> </a></li>
+                                <li><a href="perfil.php"> MI PERFIL </a></li>
+                             	<li><a href="logout.php">SALIR</a></li>
                                 <?php if($_SESSION['admin']){ ?><li><a href="menuadmin.php">ADMINISTRACIÓN</a></li><?php } ?>
                                 <?php }else{ ?>
                                 <li><a href="registro.php">REGISTRARSE</a></li>
