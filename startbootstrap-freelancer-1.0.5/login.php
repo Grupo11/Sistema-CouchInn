@@ -18,7 +18,7 @@
 									
 			<div class="contenedor-inputs">
 
-			<input align="center" type="text" class="input-48" name="user" id="" placeholder="Username">
+			<input align="center" type="text" class="input-48" name="user" id="" placeholder="Correo Electrónico">
 			<br>
 			<input align="center" type="password" class="input-48" name="password" id="" placeholder="Contraseña">
 			<br>

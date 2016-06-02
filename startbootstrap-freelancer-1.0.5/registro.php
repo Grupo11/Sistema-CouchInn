@@ -17,14 +17,13 @@
 	 <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/-->
 
    <link href="estiloinicio.css" rel="stylesheet">
-    <style type="text/css">
-	</style>
+
 
 	<title>Formulario de registro</title>
 </head>
 <body>
  	
- 		<form  method="post" class="form-registro">
+ 		<form  method="post" class="form-registro" name="registro">
 
                  	<h2 class="form-titulo">Bienvenido a CouchInn</h2>
 								
@@ -49,7 +48,7 @@
 									
 									<br>
 									
-									<input align="center" id="telefono"  type="number" minlength="6" maxlength="20" name="telefono" placeholder="Telefono" class="input-100" required>
+									 <input align="center" id="telefono" type=""   name="telefono" placeholder="Telefono" class="input-100" required>
 									
 									<br>
 								
@@ -64,7 +63,7 @@
 									<br>
 									<br>
 									<p class="red-text text-darken-2 center">Al registrarme, declaro que soy mayor de edad y acepto los Términos y Condiciones y las Políticas de Privacidad de CouhInn.</p>
-									<a class="btn red"  align="center" href="index.php" style="text-decoration: none"  style="color: #22335E" >Ir Inicio</a>
+									<?php echo "<input type='button' value='Volver al Home' onClick='history.go(-1);'>"?>;
 									
 					</div>
         		</div>
@@ -74,9 +73,10 @@
        
  
 
-</section>
+
 
 </form>
+<script src="validar.js"></script>
 
 
 </body>

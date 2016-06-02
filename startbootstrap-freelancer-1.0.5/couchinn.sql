@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2016 a las 00:21:27
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.20
+-- Tiempo de generación: 01-06-2016 a las 11:36:18
+-- Versión del servidor: 10.1.10-MariaDB
+-- Versión de PHP: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,8 +33,44 @@ CREATE TABLE `hospedaje` (
   `descripcion` text NOT NULL,
   `id_localidad` int(11) NOT NULL,
   `precio` float NOT NULL,
-  `id_tipo` int(11) NOT NULL
+  `id_tipo` int(11) NOT NULL,
+  `foto` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `hospedaje`
+--
+
+INSERT INTO `hospedaje` (`id`, `id_usuario`, `nombre`, `descripcion`, `id_localidad`, `precio`, `id_tipo`, `foto`) VALUES
+(1, 1, 'Hospedaje Carla Minte', 'El hospedaje cuenta con capacidad para 4 personas distribuidas en 2 dormitorios y cocina completa.', 2, 3000, 3, 'img/hospedajes/hosp6.jpg'),
+(2, 1, 'Hotel Coandi', 'El hospedaje cuenta con 2 dormitorios', 2, 2500, 1, 'img/hospedajes/hosp1.jpg'),
+(3, 1, 'Hotel Ortegal', 'Habitación para 2 personas con cama matrimonial', 4, 1200, 1, 'img/hospedajes/hosp11.jpg'),
+(4, 1, 'HS Franco', 'Departamento para 4 personas, con 3 ambientes', 3, 2300, 2, 'img/hospedajes/hosp2.jpg'),
+(5, 1, 'Hostel Casa de Mar', 'El hostel cuenta con cocina equipada, comedor, patio, habitaciones con capacidad para 3 y 5 personas', 5, 250, 4, 'img/hospedajes/hosp10.jpg'),
+(6, 1, 'INTERPLAZA HOTEL', 'El Interplaza Hotel se encuentra a solo 20 metros de la plaza de San Martín y alberga pileta exterior, centro de ocio y fitness y habitaciones elegantes. Se proporciona WiFi. Todas las mañanas se sirve un desayuno buffet', 6, 940, 3, 'img/hospedajes/hosp13.jpg'),
+(7, 1, 'Aloha Habemus Hostel', 'El ALOHA Habemus Hostel ofrece habitaciones con vistas a un patio amplio, proporciona WiFi gratuita y sirve un desayuno diario.\r\nLas habitaciones disponen de servicios prácticos, caja fuerte personal y baño compartido con agua caliente. También incluyen ropa de cama.', 5, 250, 4, 'img/hospedajes/hosp14.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `localidad`
+--
+
+CREATE TABLE `localidad` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `localidad`
+--
+
+INSERT INTO `localidad` (`id`, `nombre`) VALUES
+(2, 'La Plata'),
+(3, 'CABA'),
+(4, 'Mar del Plata'),
+(5, 'Villa Gesell'),
+(6, 'Córdoba');
 
 -- --------------------------------------------------------
 
@@ -47,6 +83,16 @@ CREATE TABLE `tipo` (
   `nombre` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `tipo`
+--
+
+INSERT INTO `tipo` (`id`, `nombre`) VALUES
+(1, 'Casa'),
+(2, 'Departamento'),
+(3, 'Hotel'),
+(4, 'Hostel');
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +103,7 @@ CREATE TABLE `usuario` (
   `id` int(40) NOT NULL,
   `password` varchar(20) NOT NULL,
   `localidad` varchar(30) NOT NULL,
-  `user` varchar(15) NOT NULL,
+  `user` varchar(50) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `apellido` varchar(20) NOT NULL,
   `telefono` int(18) NOT NULL,
@@ -71,22 +117,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `password`, `localidad`, `user`, `nombre`, `apellido`, `telefono`, `admin`, `deleted`, `token`) VALUES
-(11, '123', 'La Plata', 'juanma', 'Juan', 'Melichio', 123456677, 0, 0, ''),
-(12, 'asdsad', 'asdsad', 'asdad', 'asdad', 'asdad', 13123, 0, 0, ''),
-(13, 'r', 'r', 'r', 'r', 'r', 5, 0, 0, ''),
-(14, 'f', 'f', 'h', '7', 'g', 0, 0, 0, ''),
-(15, 'y', 'o', '6', '5', 'r', 0, 0, 0, ''),
-(16, 'Juan', 'Manuel', 'juan', '1', 'La Plata', 12123123, 0, 0, ''),
-(17, 'asd', 'asdsad', 'a', '1', 'sdas', 1123213213, 0, 0, ''),
-(18, 'asd', 'asdad', 'v', '1', 'asdsad', 123123213, 0, 0, ''),
-(19, 'asdad', 'asdsadsad', 'm', '1', 'La Plata', 2147483647, 0, 0, ''),
-(20, 'Juan', 'Manuel', 'Juanmanuel', '1234', 'La Plata', 2147483647, 0, 0, ''),
-(21, 'asdad', 'asdsad', 'gh', 'luifa20', 'La Plata', 2147483647, 0, 0, ''),
-(22, 'asd', 'asdasdsad', 'asd', '123123213', 'La Plata', 1231233123, 0, 0, ''),
-(23, 'kk', 'asdsad', 'jj', 'asdsad', 'La Plata', 234234324, 0, 0, ''),
-(24, 'luis', 'asdasd', 'pepe', 'asdsad', 'La Plata', 123123213, 0, 0, ''),
-(25, '123', 'La Plata', 'lol', 'Juan', 'Melichio', 2147483647, 0, 0, ''),
-(26, '12', 'sdasdasd', 'gggg', 'jasdad', 'asdsad', 2147483647, 0, 0, '');
+(1, '1234', 'la plata', 'maranela@hotmail.com', 'male', 'gauto', 1234, 0, 0, ''),
+(2, '12345', 'la plata', 'arielsobrado@gmail.com', 'Ariel', 'Sobrado', 1234, 1, 0, ''),
+(3, '12345', 'La Plata', 'marianela.gauto@outlook.com', 'Marianela', 'Gauto', 1234, 0, 0, '1689b4af6a6ab51eac1e8de487a48687');
 
 --
 -- Índices para tablas volcadas
@@ -97,8 +130,15 @@ INSERT INTO `usuario` (`id`, `password`, `localidad`, `user`, `nombre`, `apellid
 --
 ALTER TABLE `hospedaje`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_tipo` (`id_tipo`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_localidad` (`id_localidad`),
+  ADD KEY `id_tipo` (`id_tipo`);
+
+--
+-- Indices de la tabla `localidad`
+--
+ALTER TABLE `localidad`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `tipo`
@@ -110,7 +150,7 @@ ALTER TABLE `tipo`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD UNIQUE KEY `ID` (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -120,28 +160,22 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `hospedaje`
 --
 ALTER TABLE `hospedaje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT de la tabla `localidad`
+--
+ALTER TABLE `localidad`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `tipo`
 --
 ALTER TABLE `tipo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `hospedaje`
---
-ALTER TABLE `hospedaje`
-  ADD CONSTRAINT `hospedaje_ibfk_1` FOREIGN KEY (`id_tipo`) REFERENCES `tipo` (`id`),
-  ADD CONSTRAINT `hospedaje_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`ID`);
-
+  MODIFY `id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

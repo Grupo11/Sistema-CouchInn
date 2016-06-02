@@ -85,6 +85,18 @@ class Modelo {
 			return false;
 		}		
 	}
+
+		public function tipoNoExiste($tiponame){
+		$resul=$this->con->query(
+			"SELECT * FROM tipo WHERE nombre = '{$tiponame}' "
+		);
+		if ($resul->num_rows == 0){
+			return true;
+		}
+		else{
+			return false;
+		}		
+	}
 	
 	//Crea un usuario nuevo siempre y cuando no exista el username en la base de datos.
 	public function crearUsuarioNuevo($password, $localidad, $user, $nombre, $apellido,$telefono){
@@ -127,6 +139,20 @@ class Modelo {
 		return $respuesta;
 		//tarjeta_credito = '{$nuevo['tarjeta_credito']}' ,
 	}
+
+		public function actualizarTipo($nombreviejo, $nombrenuevo, $id){
+		$respuesta = '';
+		if( $nombreviejo != $nombrenuevo ){
+			if(!$this->tipoNoExiste($nombrenuevo)){
+				$respuesta .= 'El nombre de tipo elegido ya existe';
+			}else{
+				$this->con->query("UPDATE tipo SET nombre = '{$nombrenuevo}' WHERE id = '{$id}'");
+			}
+		}
+
+		return $respuesta;
+	
+	}
 	
 	public function setRespuesta($respuesta,$idcomentario){
 		$this->con->query("UPDATE `comentario` SET `respuesta`= '{$respuesta}' WHERE id = '{$idcomentario}'");
@@ -143,8 +169,14 @@ class Modelo {
 
 
 	public function addType($nombre){
+		$respuesta = '';
+		if(!$this->tipoNoExiste($nombre)){
+				$respuesta .= 'El nombre de tipo elegido ya existe';
+			}else{
 		$this->con->query("INSERT INTO tipo(id,nombre) VALUES (NULL,'{$nombre}')");
-		return $this->con->insert_id;
+		//return $this->con->insert_id;
+	     }   
+	     return $respuesta;
 	}
 	
 	public function removeType($id){
@@ -168,6 +200,13 @@ class Modelo {
 		$fila[] = $res->fetch_assoc() ;
 		$resultado = $fila[0]['nombre'];
 	return $resultado;
+	}
+	public function getTipo($id){
+		$res = $this->con->query("SELECT * FROM tipo WHERE id = '{$id}' ");
+		//$fila = array();
+		//$fila[] = $res->fetch_assoc() ;
+		//$resultado = $fila[0]['nombre'];
+	return $res;
 	}
 
 	public function getIdTipo($nombre){

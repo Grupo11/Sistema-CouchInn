@@ -3,7 +3,7 @@
 
 
 if(isset($_POST['nuevoTipo'])){
-    $con->addType($_POST['nuevoTipo']);
+    $resp = $con->addType($_POST['nuevoTipo']);
 }
 
 if(isset($_GET['delTipo'])){
@@ -17,6 +17,8 @@ $tipos = $con->getAllTypes(); ?>
 
 
 <ul class="collection">
+
+
    
     <?php foreach ($tipos as $tipo) { ?>
         <div class="card-panel white-text" style="height:28px; width:700px" >
@@ -25,8 +27,13 @@ $tipos = $con->getAllTypes(); ?>
             </div>
 
 
-             <div align="" style="float: left">
+             <div align="" style="float: left;height:28px; width:200px">
              <a href="menuadmin.php" onclick="deleteTipo(this,<?php echo $tipo['id']; ?>,<?php echo $tipo['items']; ?>); return false;">Eliminar</a> 
+
+             </div>
+             <div align="" style="float: left">
+             <?php $id= $tipo['id']; ?>
+             <a href="updatetipo.php?id=<?php echo $id ?>">Modificar</a> 
 
              </div>
               
@@ -38,6 +45,10 @@ $tipos = $con->getAllTypes(); ?>
     <br>
 <br>
 <div class="col s12 center">
+    <?php if(isset($resp)){?>
+        <p><?php echo $resp ?></p>
+    <?php }else{ echo '<br>'; } ?>
+
     <form method="post" action="menuadmin.php#tipos">
         <div class="input-field" style="float: left">
             <input name="nuevoTipo" id="nuevoTipo" placeholder="Nombre" type="text" maxlength="45" required="" />
@@ -45,6 +56,7 @@ $tipos = $con->getAllTypes(); ?>
         </div>
         
     </form>
+  
 </div>
    
 </ul>
@@ -54,7 +66,8 @@ $tipos = $con->getAllTypes(); ?>
         if(!items){
             if(confirm("Seguro desea borrar el tipo?")){
                 $.get('menuadmin.php?delTipo='+id);
-                $(element).parent().slideUp();
+               // $(element).parent().slideUp();
+               window.Location="menuadmin.php";
             }
         }else{
             alert("Existen hospedajes asociados al tipo, no puede ser borrado.")
