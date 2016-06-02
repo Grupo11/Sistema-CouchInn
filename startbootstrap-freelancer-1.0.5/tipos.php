@@ -1,37 +1,59 @@
 
  <?php 
 
-
 if(isset($_POST['nuevoTipo'])){
     $resp = $con->addType($_POST['nuevoTipo']);
 }
 
 if(isset($_GET['delTipo'])){
-    echo $_GET['delTipo'];
-    $con->removeType($_GET['delTipo']);
-    header("Location: menuadmin.php"); 
+    $con->removeType($_GET['delTipo']); 
 }
-
 
 $tipos = $con->getAllTypes(); ?>
 
+ <?php if(isset($resp)){  
+    if($resp != "" ){ ?>
+
+        <div  class="modal-content" align="center">
+        <a class="red-text tooltipped modal-trigger">
+         <h4>El tipo ingresado ya se encuentra cargado </h4> 
+         </a>
+         </div>
+        <div align="center"><a href="menuadmin.php" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a></div>
+      <?php } //else{ echo '<br>'; } ?> 
+    <?php } //else{ echo '<br>'; } ?>
+
+
+ <form method="post" action="menuadmin.php#tipos">
+        <div class="input-field" style="height:28px; width:400px" align="center">
+            <input name="nuevoTipo" id="nuevoTipo" placeholder="Ingrese el nombre del nuevo tipo" type="text" maxlength="45" required="" style="text-align: center;" />
+            <button href="#" class="btn waves-effect waves-light red lighten-1" type="submit" style="float: left;">Agregar</button>
+        </div>        
+</form>
+
 
 <ul class="collection">
-
-
    
     <?php foreach ($tipos as $tipo) { ?>
-        <div class="card-panel white-text" style="height:28px; width:700px" >
+
+        <div class="card-panel white-text" >
+
             <div align="" style="float: left;height:28px; width:200px">
-            <a class=""><?php echo $tipo['nombre'] ?></a>
+            <a class=""><h5><?php echo $tipo['nombre'] ?></h5></a>
             </div>
 
-
+             <?php 
+            $id= $tipo['id'];
+            $items= $tipo['items'];
+             ?>
              <div align="" style="float: left;height:28px; width:200px">
-             <a href="menuadmin.php" onclick="deleteTipo(this,<?php echo $tipo['id']; ?>,<?php echo $tipo['items']; ?>); return false;">Eliminar</a> 
-
+            
+             <a class="red-text tooltipped modal-trigger" data-position="bottom" data-delay="30" data-toggle="modal" data-target="#Eliminarr" data-tooltip="Eliminar tipo" href="#Eliminarr" >Eliminar</a>
+             
              </div>
-             <div align="" style="float: left">
+
+             
+             <div class="red-text" align="" style="float: left">
              <?php $id= $tipo['id']; ?>
              <a href="updatetipo.php?id=<?php echo $id ?>">Modificar</a> 
 
@@ -39,39 +61,31 @@ $tipos = $con->getAllTypes(); ?>
               
             <br>
             <br>
-         </div>
+        </div>
     <?php }?>
 
     <br>
 <br>
-<div class="col s12 center">
-    <?php if(isset($resp)){?>
-        <p><?php echo $resp ?></p>
-    <?php }else{ echo '<br>'; } ?>
-
-    <form method="post" action="menuadmin.php#tipos">
-        <div class="input-field" style="float: left">
-            <input name="nuevoTipo" id="nuevoTipo" placeholder="Nombre" type="text" maxlength="45" required="" />
-            <button href="#" class="btn waves-effect waves-light red lighten-1" type="submit">Agregar</button>
-        </div>
-        
-    </form>
-  
-</div>
-   
 </ul>
 
-<script type="text/javascript">
-    function deleteTipo(element,id,items){
-        if(!items){
-            if(confirm("Seguro desea borrar el tipo?")){
-                $.get('menuadmin.php?delTipo='+id);
-               // $(element).parent().slideUp();
-               window.Location="menuadmin.php";
-            }
-        }else{
-            alert("Existen hospedajes asociados al tipo, no puede ser borrado.")
-        }
-    }
-</script>
+<div id="Eliminarr" class="modal" style="height: 150;width: 600">
+         <?php
+          if (($items)!= 0) {
+            ?>   <div  class="modal-content" align="center" > <h4>No es posible eliminar el tipo: existen hospedajes asociados al mismo </h4> </div>
+                 <a href="menuadmin.php" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+           <?php } else{ ?>
+            <div  class="modal-content" align="center" > <h4>Eliminar tipo </h4> </div>
+        
+            <div align="right" style="float: right;"><a href="menuadmin.php" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar </a></div>
+            <div align="right"><a href="menuadmin.php?delTipo=<?php echo $id ?>" class="modal-action modal-close waves-effect waves-green btn-flat">Eliminar</a></div>
+            
+        <!-- </div> -->
+         <?php } ?>
+    </div>
+</div>
+
+<!-- <div  style="height: 150;width: 600"> -->
+   
+  
+<!-- </div> -->
 

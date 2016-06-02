@@ -118,10 +118,10 @@ class Modelo {
 	}
 	//Crea un usuario nuevo siempre y cuando no exista el username en la base de datos.
 	public function actualizarUsuario($viejo, $nuevo){
-		$respuesta = '';
+		
 		if( $viejo['user'] != $nuevo['user'] ){
 			if(!$this->usuarioNoExiste($nuevo['user'])){
-				$respuesta .= 'El nombre de usuario elegido ya existe';
+				$respuesta = 'El nombre de usuario elegido ya existe';
 			}else{
 				$this->con->query("UPDATE usuario SET user = '{$nuevo['user']}' WHERE id = '{$viejo['id']}'");
 			}

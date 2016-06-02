@@ -33,8 +33,14 @@ if( isset($_POST['edit'])){
  <div class="container">
  <div class="row">
     <?php if(isset($resp)){?>
-        <p><?php echo $resp ?></p>
+        <div  class="modal-content" align="center">
+        <a class="red-text tooltipped modal-trigger">
+         <h4>El tipo ingresado ya se encuentra cargado </h4> 
+         </a>
+         </div>
+        <div align="center"><a href="menuadmin.php" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a></div>
     <?php }else{ echo '<br>'; } ?>
+    
     <form class="col s12" method="post">
         <input type="hidden" name="edit" value="." />
     <div class="card-panel">
@@ -43,8 +49,9 @@ if( isset($_POST['edit'])){
         <li class="divider"></li><br>
           <div class="row">
             <div class="input-field col s6">
-              <input required placeholder="Nombre" id="nombre" type="text" name="nombre" class="validate" value="<?php echo "$nombre"; ?>" />
               <label for="nombre">Nombre</label>
+              <input required placeholder="Nombre" id="nombre" type="text" name="nombre" class="validate" value="<?php echo "$nombre"; ?>" />
+              
             </div>
           
  <div class="row">
